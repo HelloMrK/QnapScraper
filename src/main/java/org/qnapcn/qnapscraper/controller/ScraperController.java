@@ -1,6 +1,6 @@
 package org.qnapcn.qnapscraper.controller;
 
-import org.qnapcn.qnapscraper.model.ScraperData;
+import org.qnapcn.qnapscraper.model.official.OfficialXmlRoot;
 import org.qnapcn.qnapscraper.service.ScraperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +16,7 @@ public class ScraperController {
 
     @PostMapping("/scrape")
     public void scrapeAndSaveData() {
-        ScraperData data = scraperService.scrapeData(); // 执行刮削操作
+        OfficialXmlRoot data = scraperService.scrapeData(); // 执行刮削操作
         scraperService.saveData(data); // 保存数据到 MongoDB
     }
 }
